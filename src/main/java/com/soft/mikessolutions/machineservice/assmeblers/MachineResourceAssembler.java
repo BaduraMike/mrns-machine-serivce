@@ -14,7 +14,7 @@ public class MachineResourceAssembler implements ResourceAssembler<Machine, Reso
     @Override
     public Resource<Machine> toResource(Machine machine) {
         return new Resource<>(machine,
-                linkTo(methodOn(MachineController.class).one(machine.getId())).withSelfRel(),
+                linkTo(methodOn(MachineController.class).one(machine.getIdentityNumber())).withSelfRel(),
                 linkTo(methodOn(MachineController.class).all()).withRel("machines"));
     }
 }

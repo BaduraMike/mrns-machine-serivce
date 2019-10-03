@@ -6,9 +6,9 @@ import javax.persistence.*;
 abstract class BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long identityNumber;
 
-    public Long getId() {
-        return id;
+    public Long getIdentityNumber() {
+        return identityNumber;
     }
 }

@@ -39,6 +39,11 @@ public class MachineServiceImpl implements MachineService {
 
     @Override
     public void deleteById(Long id) {
-        machineRepository.deleteById(findById(id).getId());
+        machineRepository.deleteById(findById(id).getIdentityNumber());
+    }
+
+    @Override
+    public Machine findBySerialNumber(String serialNumber) {
+        return machineRepository.findBySerialNumber(serialNumber);
     }
 }

@@ -38,9 +38,16 @@ public class MachineController {
                 linkTo(methodOn(MachineController.class).all()).withRel("machines"));
     }
 
-    @GetMapping("/machines/{id}")
+    @GetMapping("/machines/{id:\\d+}")
     public Resource<Machine> one(@PathVariable Long id) {
         Machine machine = machineService.findById(id);
+
+        return machineAssembler.toResource(machine);
+    }
+
+    @GetMapping(value = "/machines/serialNumber/{serialNumber}")
+    public Resource<Machine> getBySerialNumber(@PathVariable String serialNumber) {
+        Machine machine = machineService.findBySerialNumber(serialNumber);
 
         return machineAssembler.toResource(machine);
     }

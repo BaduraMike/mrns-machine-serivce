@@ -5,4 +5,5 @@ import org.springframework.stereotype.Service;
 
 @Service
 public interface MachineService extends CrudService<Machine, Long> {
+    Machine findBySerialNumber(String serialNumber);
 }

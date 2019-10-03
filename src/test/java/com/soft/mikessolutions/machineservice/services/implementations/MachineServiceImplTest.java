@@ -76,7 +76,7 @@ public class MachineServiceImplTest {
         machineService.save(newMachine);
         int preDeleteUserCount = machineService.findAll().size();
         //WHEN
-        machineService.deleteById(newMachine.getId());
+        machineService.deleteById(newMachine.getIdentityNumber());
         int postDeleteUserCount = machineService.findAll().size();
         //THEN
         Assert.assertEquals(1, preDeleteUserCount - postDeleteUserCount);
